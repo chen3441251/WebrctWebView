@@ -12,6 +12,8 @@ class MainActivity : AppCompatActivity() {
 
         val et = findViewById<EditText>(R.id.et_webview)
         et.hint = "http://www.script-tutorials.com/demos/199/index.html"
+        val etUa = findViewById<EditText>(R.id.et_ua)
+
         val button = findViewById<Button>(R.id.button)
         button.setOnClickListener {
             var bundle = Bundle()
@@ -20,6 +22,7 @@ class MainActivity : AppCompatActivity() {
                 url = et.text.toString().trim()
             }
             bundle.putString("url", url)
+            bundle.putString("ua", etUa.text.toString().trim())
             WebViewActivity.start(this, bundle)
         }
 

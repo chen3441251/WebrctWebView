@@ -61,9 +61,14 @@ class WebViewActivity : AppCompatActivity() {
         val bundle = intent.extras
         if (bundle != null) {
             val url = bundle.getString("url")
+            val ua = bundle.getString("ua")
+            val webSettings = mWebview.settings
+            webSettings.userAgentString =
+                webSettings.userAgentString + "?${ua}"
             if (!url.isNullOrEmpty()) {
                 mWebview.loadUrl(url)
             }
+
         }
     }
 
@@ -77,8 +82,7 @@ class WebViewActivity : AppCompatActivity() {
         webSettings.domStorageEnabled = true
 
         webSettings.allowFileAccess = false
-        webSettings.userAgentString =
-            webSettings.userAgentString + "?channel=yxTree"
+
         mWebview.webChromeClientExtension = x5WebChromeClientExtension
 
         mWebview.webChromeClient = object : WebChromeClient() {

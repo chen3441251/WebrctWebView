@@ -14,11 +14,19 @@
         android:layout_marginTop="100dp"
         android:hint="请输入测试地址"
         app:layout_constraintTop_toTopOf="parent" />
-
+    <EditText
+        android:id="@+id/et_ua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="12dp"
+        android:hint="请输入UA标记键值对，比如channel=abc"
+        app:layout_constraintTop_toBottomOf="@+id/et_webview" />
     <Button
         android:id="@+id/button"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="开始测试"
-        app:layout_constraintTop_toBottomOf="@+id/et_webview" />
+        app:layout_constraintTop_toBottomOf="@+id/et_ua" />
 </androidx.constraintlayout.widget.ConstraintLayout>
